@@ -1,10 +1,10 @@
-# MFRE Welcome Package Summer 2025 
+# MFRE Welcome Package Summer 2026/2027
 Master of Food and Resource Economics  
 University of British Columbia  
 
-## Welcome to MFRE 2025
+## Welcome to MFRE 2026/2027
 
-Congratulations and welcome to the 2025 cohort of the MFRE program at UBC. We are excited to have you join us and look forward to meeting you in person during the summer boot camp in August.
+Congratulations and welcome to the 2026/2027 cohort of the MFRE program at UBC. We are excited to have you join us and look forward to meeting you in person during the summer boot camp in August.
 
 The MFRE program is an intensive and applied graduate program that combines economics, business, and policy with a focus on food and resource systems. Students come from diverse academic and professional backgrounds, and this welcome package is designed to help you establish a common foundation in basic programming and data analysis before the program begins.
 
