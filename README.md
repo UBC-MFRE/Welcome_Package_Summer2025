@@ -18,7 +18,7 @@ If you are new to coding, do not worry. We recommend you begin reviewing these m
 
 As an optional but highly recommended resource, consider enrolling in [CS50: Introduction to Computer Science](https://www.edx.org/course/cs50s-introduction-to-computer-science). This is Harvard University's introductory programming course, freely available online. It provides a helpful foundation in core computing concepts.
 
-We also encourage you to explore [R for Applied Economics: A Beginner’s Guide](https://bookdown.org/mbrown35/bookdown-Rguide/), a student-friendly resource for learning R in an economics context.
+We also encourage you to explore [R for Applied Economics: A Beginner's Guide](https://bookdown.org/mbrown35/bookdown-Rguide/), a student-friendly resource for learning R in an economics context.
 
 This welcome package summarizes the most relevant topics for your MFRE studies. While it is not a replacement for CS50 or other external tutorials, it offers targeted practice in Python and R focused on data handling and analysis.
 
@@ -26,7 +26,20 @@ This welcome package summarizes the most relevant topics for your MFRE studies. 
 
 This repository includes materials in both Python (Jupyter notebooks) and R (RMarkdown files). You will find introductory lessons, sample code, exercises, and small assignments.
 
-<pre> <code> welcome_package/ ├── python/ │ ├── 01_variables.ipynb │ ├── 02_control_flow.ipynb │ └── ... ├── r/ │ ├── 01_data_types.Rmd │ ├── 02_control_structures.Rmd │ └── ... ├── setup_guide/ │ └── README.md └── README.md </code> </pre>
+```
+Welcome_Package_Summer2026/
+  Installation Guide/
+    README_setup.md                            setup instructions for Python and R
+  python/
+    Pythons essential_Basics.ipynb             Part A: Python basics
+    python essential for data analysis.ipynb   Part B: data analysis
+    MFRE_Python_Assignment_V1.ipynb            submit to your instructor
+  r/
+    r_intro.Rmd                                R basics
+    r_applications.Rmd                         applied R, with exercises
+  LICENSE
+  README.md
+```
 
 
 We suggest starting with the Python notebooks before moving to the RMarkdown files. Each notebook or script includes exercises to reinforce your understanding. Try to solve them on your own and note any questions to discuss during the summer program.

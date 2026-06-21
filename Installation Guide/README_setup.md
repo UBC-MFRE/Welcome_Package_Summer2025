@@ -1,117 +1,147 @@
 # Local Environment Setup Guide
 
-This guide will help you set up your local computer to run the materials in the MFRE Welcome Package. It includes instructions for installing Python, Anaconda, and VS Code, creating virtual environments, and running Jupyter Notebooks.
+This guide sets up your computer to run the MFRE Welcome Package materials. Part 1 covers Python (Anaconda, VS Code, Jupyter). Part 2 covers R (R, RStudio, and the packages used in the R notebooks).
 
-## Step 1: Install Anaconda (Python)
+Work through Part 1 for the Python notebooks and Part 2 for the R notebooks. If you get stuck, note the step and the exact error message, and we will help during the first week of the bootcamp.
 
-1. Go to the official Anaconda website: https://www.anaconda.com/download
-2. Choose the version for your operating system (Windows, macOS, or Linux).
-3. Download the installer (Python 3.x version).
-4. Run the installer and follow the on-screen instructions. Keep the default options unless you know what you are doing.
-5. After installation, open the Anaconda Navigator or Anaconda Prompt to verify it works.
+---
 
-To test your installation:
+# Part 1: Python
 
-- Open the Anaconda Prompt or Terminal
-- Type: `conda --version`
+## Step 1: Install Anaconda
 
-You should see the version number printed.
+1. Go to https://www.anaconda.com/download
+2. Download the installer for your operating system (Windows, macOS, or Linux), Python 3.x version.
+3. Run the installer and keep the default options unless you know you need to change them.
+4. To confirm it worked, open the Anaconda Prompt (Windows) or a terminal (macOS/Linux) and run:
 
-## Step 2: Install VS Code (Visual Studio Code)
+   ```
+   conda --version
+   ```
 
-1. Go to the official VS Code website: https://code.visualstudio.com
-2. Download the installer for your operating system.
-3. Run the installer and follow the instructions.
-4. After installation, launch VS Code.
+   You should see a version number.
 
-### Recommended Extensions
+## Step 2: Install VS Code
 
-In VS Code, go to the Extensions panel and install the following:
+1. Go to https://code.visualstudio.com and download the installer for your operating system.
+2. Run the installer, then launch VS Code.
+3. Open the Extensions panel and install:
+   - Python (by Microsoft)
+   - Jupyter (by Microsoft)
 
-- Python (by Microsoft)
-- Jupyter (by Microsoft)
-- R Extension (by R Tools or Ikuyadeu)
+## Step 3: Create a Python environment
 
-## Step 3: Create a Virtual Environment
+A separate environment keeps the packages for this course isolated from the rest of your system.
 
-It is good practice to use a virtual environment so that your Python dependencies stay organized.
-
-1. Open Anaconda Prompt (Windows) or Terminal (macOS/Linux).
-2. Run the following command to create a new environment:
+1. Open the Anaconda Prompt (Windows) or a terminal (macOS/Linux).
+2. Create the environment:
 
    ```
    conda create -n mfre python=3.10
    ```
 
-3. Activate the environment:
+3. Activate it:
 
    ```
    conda activate mfre
    ```
 
-4. Install required packages:
+4. Install the packages the notebooks use:
 
    ```
-   conda install jupyter pandas matplotlib numpy
+   conda install jupyter pandas numpy matplotlib
    ```
 
-You can now use this environment to run all Python notebooks in the welcome package.
+Activate this environment (`conda activate mfre`) every time you work on the Python notebooks.
 
-## Step 4: Open and Run a Jupyter Notebook
+## Step 4: Run a Jupyter notebook
 
-### Option 1: Using Anaconda Navigator
+**Option A: Anaconda Navigator**
 
 1. Launch Anaconda Navigator.
-2. Click on the "Launch" button under Jupyter Notebook.
-3. Your browser will open. Navigate to the folder where the welcome package is saved.
-4. Click on any `.ipynb` file to open and run it.
+2. Click Launch under Jupyter Notebook.
+3. In the browser tab that opens, navigate to the welcome package folder and click a `.ipynb` file.
 
-### Option 2: Using Terminal or Anaconda Prompt
+**Option B: Terminal**
 
-1. Navigate to your folder containing the notebooks. For example:
+1. Activate the environment and move to the notebook folder:
 
    ```
-   cd Desktop/welcome_package/python
+   conda activate mfre
+   cd path/to/welcome_package/python
    ```
 
-2. Start Jupyter Notebook:
+2. Start Jupyter:
 
    ```
    jupyter notebook
    ```
 
-3. A browser window will open automatically. Click on any `.ipynb` file to begin.
+3. Click a `.ipynb` file in the browser tab that opens.
 
-## Step 5: Running RMarkdown Files
+---
 
-To run `.Rmd` files (RMarkdown):
+# Part 2: R
 
-1. Install RStudio: https://posit.co/download/rstudio-desktop
-2. Open RStudio and open the `.Rmd` file.
-3. Click the "Knit" button at the top to render the file.
+The R notebooks (`.Rmd` files) need two programs: **R** (the language) and **RStudio** (the editor used to run and knit `.Rmd` files). Install R first, then RStudio.
 
-If prompted, install missing packages.
+## Step 5: Install R
 
-## Additional Tips
+1. Go to https://cran.r-project.org
+2. Choose your operating system:
+   - **Windows**: click "Download R for Windows", then "base", then "Download R for Windows", and run the installer.
+   - **macOS**: click "Download R for macOS" and choose the `.pkg` that matches your chip (Apple Silicon or Intel). If unsure, check the Apple menu > About This Mac.
+   - **Linux**: follow the instructions for your distribution.
+3. Run the installer and keep the default options.
 
-- Always activate your environment before working:
+## Step 6: Install RStudio
+
+1. Go to https://posit.co/download/rstudio-desktop
+2. Download RStudio Desktop (free) for your operating system and run the installer.
+3. Open RStudio. It finds your R installation automatically. In the bottom-left Console you should see the R version printed at startup.
+
+## Step 7: Install the R packages
+
+The R notebooks use a few packages. Install them once. In the RStudio Console, type:
+
+```r
+install.packages(c("rmarkdown", "zoo", "class", "ggplot2"))
+```
+
+Press Enter and wait for the downloads to finish. If you are asked to choose a CRAN mirror, pick any one near you.
+
+Note: `r_applications.Rmd` also installs `zoo`, `class`, and `ggplot2` automatically the first time you knit it, if they are missing. Installing them here first means the first knit is faster and does not need to download anything.
+
+## Step 8: Open and run an R Markdown file
+
+1. In RStudio, choose File > Open File and select an `.Rmd` file (start with `r/r_intro.Rmd`).
+2. To render the whole document, click the **Knit** button in the toolbar. RStudio runs every cell in order and produces an HTML file.
+3. To run a single cell while you read, click inside it and press `Ctrl + Enter` (`Cmd + Enter` on macOS).
+
+If knitting prompts you to install a missing package, accept and let it install, then knit again.
+
+---
+
+# Tips
+
+- Activate your Python environment before working on the notebooks:
 
   ```
   conda activate mfre
   ```
 
-- To update packages:
+- Update Python packages when needed:
 
   ```
   conda update --all
   ```
 
-- To deactivate:
+- Deactivate the Python environment when you are done:
 
   ```
   conda deactivate
   ```
 
-## Questions?
+# Questions
 
-If you encounter any issues during setup, note them down and we will review common setup questions at the start of the boot camp.
+If you hit a problem during setup, write down the step and the exact error message. We will go over common setup issues at the start of the bootcamp.
