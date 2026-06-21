@@ -31,12 +31,13 @@ Welcome_Package_Summer2026/
   Installation Guide/
     README_setup.md                            setup instructions for Python and R
   python/
-    Pythons essential_Basics.ipynb             Part A: Python basics
-    python essential for data analysis.ipynb   Part B: data analysis
-    MFRE_Python_Assignment_V1.ipynb            submit to your instructor
+    1. python essential_basics.ipynb              Part A: Python basics
+    2. python essential_for_data analysis.ipynb   Part B: data analysis
+    3. mfre_python_assignment.ipynb               submit to your instructor
   r/
     r_intro.Rmd                                R basics
     r_applications.Rmd                         applied R, with exercises
+    MFRE_R_Assignment_V1.Rmd                   submit to your instructor
   LICENSE
   README.md
 ```

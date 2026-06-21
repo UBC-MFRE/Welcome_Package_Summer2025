@@ -1,0 +1,155 @@
+---
+title: "MFRE R Prep: Assignment"
+author: "Your Name Here (replace with your full name)"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: readable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+# Instructions
+
+Complete this assignment after working through `r_intro.Rmd` and `r_applications.Rmd`.
+
+- Replace the author field at the top of this file with your full name.
+- Write your answer in the code cell under each question.
+- Add at least one comment per code cell explaining your reasoning.
+- Run each cell as you go (`Ctrl + Enter`, or `Cmd + Enter` on macOS).
+- When finished, click **Knit** to confirm the whole file runs without errors.
+- Email both the `.Rmd` file and the knitted `.html` file to `olivier.ntwali@ubc.ca`.
+- Subject line: `MFRE R Prep - Assignment - [Your Name]`
+
+The assignment uses base R only. No extra packages are needed.
+
+# Dataset
+
+Run this cell first. All questions use these objects or the built-in `iris` and `mtcars` datasets.
+
+```{r}
+# Crop yield data (tonnes per hectare, approximate 2023 values)
+countries  <- c("Canada", "USA", "Australia", "Russia", "France")
+crops      <- c("wheat", "corn", "wheat", "wheat", "wheat")
+yields_tha <- c(3.50, 9.80, 2.10, 3.00, 7.20)
+exports_mt <- c(22.0, 26.5, 21.0, 33.0, 18.0)
+
+crop_data <- data.frame(
+  country    = countries,
+  crop       = crops,
+  yield_t_ha = yields_tha,
+  export_mt  = exports_mt
+)
+
+# Conversion factors: 1 t/ha to bushels/acre
+bushel_factors <- c(wheat = 14.87, corn = 39.37, canola = 44.09, soy = 14.87)
+
+print(crop_data)
+```
+
+# Question 1: Vectors and arithmetic
+
+a) Calculate and print the average yield across all five rows of `yields_tha`.
+
+b) France has the highest wheat yield in the dataset and Australia the lowest. Calculate how many times higher France's yield is than Australia's. Print the result rounded to 2 decimal places.
+
+c) Convert Canada's wheat yield from t/ha to bushels per acre using `bushel_factors`. Print the result rounded to 1 decimal place.
+
+```{r}
+# Your code here
+
+```
+
+# Question 2: Control flow
+
+Write a `for` loop over `yields_tha` that prints one line per country in this format:
+
+```
+Canada: 3.5 t/ha (Good)
+```
+
+The rating in parentheses follows this table. Use `if`, `else if`, and `else` inside the loop, and `sprintf()` to build each line.
+
+| Yield (t/ha)  | Rating    |
+|---------------|-----------|
+| 6.0 or higher | Excellent |
+| 3.0 to 6.0    | Good      |
+| 1.5 to 3.0    | Fair      |
+| below 1.5     | Poor      |
+
+```{r}
+# Your code here
+
+```
+
+# Question 3: Writing a function
+
+Write a function `convert_yield(yield_t_ha, crop)` that:
+
+1. Looks up the conversion factor for `crop` in `bushel_factors`.
+2. Returns the string `"Error: no conversion factor for <crop>"` if the crop is not in `bushel_factors`. The `%in%` operator and `names()` are useful here.
+3. Otherwise returns the yield in bushels per acre, rounded to 1 decimal place.
+
+Test it with:
+
+```r
+convert_yield(3.50, "wheat")   # 52.0
+convert_yield(9.80, "corn")    # 385.8
+convert_yield(3.00, "rice")    # error message
+```
+
+```{r}
+# Your code here
+
+```
+
+# Question 4: Data frames
+
+Using `crop_data`:
+
+a) Filter the rows where `yield_t_ha` is greater than 3.0 and print them.
+
+b) Add a column `yield_kg_ha` that converts the yield to kg per hectare (multiply by 1000). Print the updated data frame.
+
+c) Calculate the average `export_mt` of the wheat rows only.
+
+```{r}
+# Your code here
+
+```
+
+# Question 5: Aggregation and plotting
+
+a) Using the built-in `iris` dataset, calculate the mean `Sepal.Length` for each `Species` with `aggregate()`.
+
+b) Using `crop_data`, create a scatter plot of `export_mt` against `yield_t_ha`. Label both axes and add a title.
+
+```{r}
+# Your code here
+
+```
+
+# Question 6: Correlation and regression
+
+Using the built-in `mtcars` dataset:
+
+a) Calculate the correlation between `wt` (weight) and `mpg`.
+
+b) Fit a linear regression predicting `mpg` from `wt` and print the model summary.
+
+c) In a comment, state whether the relationship is positive or negative and what that means in one sentence.
+
+```{r}
+# Your code here
+
+```
+
+# Submission checklist
+
+- [ ] Your name is in the author field at the top of this file
+- [ ] Every question has code in its answer cell, with comments
+- [ ] The file knits to HTML without errors
+- [ ] You emailed both the `.Rmd` and the `.html` to `olivier.ntwali@ubc.ca`
